@@ -1,10 +1,10 @@
-const url = 'https://jsonplaceholder.typicode.com/users'; // toma la url del json para agregar los datos
+const url = 'https://jsonplaceholder.typicode.com/users'; 
 
-const formulario = document.getElementById('miFormulario'); //obtiene el formulario por su id
+const formulario = document.getElementById('form'); 
 
 formulario.addEventListener("submit", function(event){ 
     event.preventDefault();
-    alert("abre la consola desde inspeccionar: sortcut: f12")
+    alert("abre la consola")
     /* se le añade un envento a el formulario y event.preventDefault() para que al enviar los datos no se recargue la pagina automaticamente */ 
     
     // obtiene los datos de las inputs
@@ -24,11 +24,11 @@ formulario.addEventListener("submit", function(event){
     // Configura las opciones para la solicitud de envío al servidor
 
     const requestOptions = {
-        method: 'POST', // Utiliza el método HTTP POST para enviar datos al servidor
+        method: 'POST', 
         headers: {
-            'Content-Type': 'application/json' // Especifica el tipo de contenido como JSON
+            'Content-Type': 'application/json' 
         },
-        body:JSON.stringify(data) // Convierte el objeto de datos en una cadena JSON y lo coloca en el cuerpo de la solicitud
+        body:JSON.stringify(data) 
     };
 
     fetch(url, requestOptions)
@@ -40,8 +40,7 @@ formulario.addEventListener("submit", function(event){
         return response.json(); // Convierte la respuesta del servidor en un objeto JSON
     })
     .then(data => {
-        console.log('Respuesta del servidor:', data);  // Maneja la respuesta del servidor, en este caso, la muestra en la consola del navegador
-       
+        console.log('Respuesta del servidor:', data);  // Maneja la respuesta del servidor
     })
     .catch(error => {   // Maneja los errores que puedan ocurrir durante la solicitud
         console.error('Error:', error);
